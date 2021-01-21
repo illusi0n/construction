@@ -4,7 +4,7 @@ DONE Create spring boot project with initial dependencies
 DONE Setup h2 in memory db
 DONE Add a Test controller to try out ping/pong
 ========================================================
-- Model entities (Issuer, Bidder, Tender, Offer)
+DONE Model entities (Issuer, Bidder, Tender, Offer)
 - Create endpoints for each entity
     - Tender
         - create tender
@@ -14,6 +14,8 @@ DONE Add a Test controller to try out ping/pong
         - All offers for bidder
     - Issuer
         - All tenders that issuer created
+- Add predefined issuers and bidders on app startup
+- Test out endpoints
 - Model tender result
 - Accept offer
     - Model accept offer for a tender (Action entity)
@@ -22,6 +24,8 @@ DONE Add a Test controller to try out ping/pong
 - Add exception handling
 - Add appropriate error responses for exceptions that occured
 - Handle all uncaught exceptions
+- Remove test controller
+- if time add field name as string generator
 =========================================================
 - Write down integration test
 - Add spring rest docs with the integration tests
