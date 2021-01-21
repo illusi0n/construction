@@ -24,6 +24,7 @@ DONE Add a Test controller to try out ping/pong
 - Add exception handling
 - Add appropriate error responses for exceptions that occured
 - Handle all uncaught exceptions
+- Remove test controller
 =========================================================
 - Write down integration test
 - Add spring rest docs with the integration tests

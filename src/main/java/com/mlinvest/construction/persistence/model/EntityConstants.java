@@ -10,4 +10,10 @@ public class EntityConstants {
         public static final int MIN_NAME_LENGTH = 5;
         public static final int MAX_NAME_LENGTH = 30;
     }
+
+    public static class Tender {
+        // for testing purposes allow small desc length
+        public static final int MIN_NAME_LENGTH = 5;
+        public static final int MAX_NAME_LENGTH = 2000;
+    }
 }
