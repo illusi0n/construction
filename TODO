@@ -1,0 +1,34 @@
+Tasks
+
+DONE Create spring boot project with initial dependencies
+DONE Setup h2 in memory db
+DONE Add a Test controller to try out ping/pong
+========================================================
+- Model entities (Issuer, Bidder, Tender, Offer)
+- Create endpoints for each entity
+    - Tender
+        - create tender
+        - create offer for tender
+    - Bidder
+        - Offers for bidder per tender
+        - All offers for bidder
+    - Issuer
+        - All tenders that issuer created
+- Model tender result
+- Accept offer
+    - Model accept offer for a tender (Action entity)
+    - Add status for Tender (Created, Finished)
+    - Simple async job for processing actions
+- Add exception handling
+- Add appropriate error responses for exceptions that occured
+- Handle all uncaught exceptions
+=========================================================
+- Write down integration test
+- Add spring rest docs with the integration tests
+- Write down unit test for core logic
+===========================================================
+Readme
+- write down technology stack
+- write down any technical decision
+- project setup build and run with maven
+- general approach
