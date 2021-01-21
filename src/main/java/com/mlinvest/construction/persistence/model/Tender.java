@@ -4,6 +4,7 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Getter
@@ -18,6 +19,9 @@ public class Tender {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "issuer_id", nullable = false)
     private Issuer issuer;
+
+    @OneToMany(mappedBy = "tender", fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<Offer> offers;
 
     public Tender() {
     }
