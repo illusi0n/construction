@@ -4,7 +4,7 @@ DONE Create spring boot project with initial dependencies
 DONE Setup h2 in memory db
 DONE Add a Test controller to try out ping/pong
 ========================================================
-- Model entities (Issuer, Bidder, Tender, Offer)
+DONE Model entities (Issuer, Bidder, Tender, Offer)
 - Create endpoints for each entity
     - Tender
         - create tender
