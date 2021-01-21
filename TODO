@@ -14,6 +14,8 @@ DONE Add a Test controller to try out ping/pong
         - All offers for bidder
     - Issuer
         - All tenders that issuer created
+- Add predefined issuers and bidders on app startup
+- Test out endpoints
 - Model tender result
 - Accept offer
     - Model accept offer for a tender (Action entity)
