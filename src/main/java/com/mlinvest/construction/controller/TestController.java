@@ -37,7 +37,7 @@ public class TestController {
         var newBidder = Bidder.of("Damir");
         var savedBidder = bidderRepository.save(newBidder);
 
-        var newTender = Tender.of("This is a brand new tender");
+        var newTender = Tender.of("This is a brand new tender", savedIssuer);
         var savedTender = tenderRepository.save(newTender);
     }
 }

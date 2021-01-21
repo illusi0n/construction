@@ -2,10 +2,7 @@ package com.mlinvest.construction.persistence.model;
 
 import lombok.Getter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -18,14 +15,19 @@ public class Tender {
     @Size(min = EntityConstants.Tender.MIN_NAME_LENGTH, max = EntityConstants.Tender.MAX_NAME_LENGTH)
     private String description;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "issuer_id", nullable = false)
+    private Issuer issuer;
+
     public Tender() {
     }
 
-    public Tender(String description) {
+    public Tender(String description, Issuer issuer) {
         this.description = description;
+        this.issuer = issuer;
     }
 
-    public static Tender of(String description) {
-        return new Tender(description);
+    public static Tender of(String description, Issuer issuer) {
+        return new Tender(description, issuer);
     }
 }
