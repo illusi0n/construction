@@ -26,6 +26,9 @@ public class TestController {
     @Autowired
     private TenderResultRepository tenderResultRepository;
 
+    @Autowired
+    private IssuerActionRepository issuerActionRepository;
+
     @GetMapping("ping")
     public String pingPong() {
         return "pong";
@@ -45,7 +48,10 @@ public class TestController {
         var offer = Offer.of("Real cool offer, 100% guarantee", savedBidder, savedTender);
         var savedOffer = offerRepository.save(offer);
 
-        var tenderResult = TenderResult.of(newTender, offer);
+        var tenderResult = TenderResult.of(savedTender, savedOffer);
         var savedTenderResult = tenderResultRepository.save(tenderResult);
+
+        var newAction = IssuerAction.of(ActionType.ACCEPT_OFFER, ActionStatus.PENDING, savedTender, savedOffer);
+        var savedAction = issuerActionRepository.save(newAction);
     }
 }
