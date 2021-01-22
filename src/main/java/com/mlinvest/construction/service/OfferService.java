@@ -4,6 +4,7 @@ import com.mlinvest.construction.controller.dto.SaveOfferRequestDto;
 import com.mlinvest.construction.persistence.model.Offer;
 import com.mlinvest.construction.persistence.repository.OfferRepository;
 import com.mlinvest.construction.service.exception.BidderNotFoundException;
+import com.mlinvest.construction.service.exception.OfferNotFoundException;
 import com.mlinvest.construction.service.exception.TenderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,5 +44,14 @@ public class OfferService {
     public List<Offer> findAllByTender(Long tenderId) throws TenderNotFoundException {
         var tender = tenderService.findById(tenderId);
         return offerRepository.findByTender(tender);
+    }
+
+    public Offer findById(Long offerId) throws OfferNotFoundException {
+        var findResult = offerRepository.findById(offerId);
+        if (findResult.isEmpty()) {
+            throw new OfferNotFoundException(offerId);
+        }
+
+        return findResult.get();
     }
 }
