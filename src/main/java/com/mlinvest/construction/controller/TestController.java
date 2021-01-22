@@ -1,13 +1,7 @@
 package com.mlinvest.construction.controller;
 
-import com.mlinvest.construction.persistence.model.Bidder;
-import com.mlinvest.construction.persistence.model.Issuer;
-import com.mlinvest.construction.persistence.model.Offer;
-import com.mlinvest.construction.persistence.model.Tender;
-import com.mlinvest.construction.persistence.repository.BidderRepository;
-import com.mlinvest.construction.persistence.repository.IssuerRepository;
-import com.mlinvest.construction.persistence.repository.OfferRepository;
-import com.mlinvest.construction.persistence.repository.TenderRepository;
+import com.mlinvest.construction.persistence.model.*;
+import com.mlinvest.construction.persistence.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +23,9 @@ public class TestController {
     @Autowired
     private OfferRepository offerRepository;
 
+    @Autowired
+    private TenderResultRepository tenderResultRepository;
+
     @GetMapping("ping")
     public String pingPong() {
         return "pong";
@@ -47,5 +44,8 @@ public class TestController {
 
         var offer = Offer.of("Real cool offer, 100% guarantee", savedBidder, savedTender);
         var savedOffer = offerRepository.save(offer);
+
+        var tenderResult = TenderResult.of(newTender, offer);
+        var savedTenderResult = tenderResultRepository.save(tenderResult);
     }
 }

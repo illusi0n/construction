@@ -23,6 +23,9 @@ public class Tender {
     @OneToMany(mappedBy = "tender", fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Offer> offers;
 
+    @OneToOne(mappedBy = "tender", fetch = FetchType.LAZY, optional = false)
+    private TenderResult result;
+
     public Tender() {
     }
 
