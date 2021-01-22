@@ -26,7 +26,7 @@ public class Issuer {
     public Issuer() {
     }
 
-    public Issuer(String name) {
+    protected Issuer(String name) {
         this.name = name;
     }
 

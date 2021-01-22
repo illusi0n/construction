@@ -6,15 +6,15 @@ DONE Add a Test controller to try out ping/pong
 ========================================================
 DONE Model entities (Issuer, Bidder, Tender, Offer)
 - Create endpoints for each entity
-    - Tender
-        - create tender
-        - create offer for tender
+    DONE Tender
+        DONE create tender
+        DONE create offer for tender
     - Bidder
         - Offers for bidder per tender
         - All offers for bidder
     - Issuer
         - All tenders that issuer created
-- Add predefined issuers and bidders on app startup
+DONE Add predefined issuers and bidders on app startup
 - Test out endpoints
 - Model tender result
 - Accept offer
