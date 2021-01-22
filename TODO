@@ -9,6 +9,7 @@ DONE Model entities (Issuer, Bidder, Tender, Offer)
     DONE Tender
         DONE create tender
         DONE create offer for tender
+        - Offers per tender
     - Bidder
         - Offers for bidder per tender
         - All offers for bidder

@@ -3,6 +3,7 @@ package com.mlinvest.construction.service;
 import com.mlinvest.construction.controller.dto.SaveOfferRequestDto;
 import com.mlinvest.construction.persistence.model.Offer;
 import com.mlinvest.construction.persistence.repository.OfferRepository;
+import com.mlinvest.construction.service.exception.BidderNotFoundException;
 import com.mlinvest.construction.service.exception.TenderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class OfferService {
     @Autowired
     private OfferRepository offerRepository;
 
-    public Offer save(SaveOfferRequestDto saveOfferRequest) throws TenderNotFoundException {
+    public Offer save(SaveOfferRequestDto saveOfferRequest) throws TenderNotFoundException, BidderNotFoundException {
         var tender = tenderService.findById(saveOfferRequest.getTenderId());
         var bidder = bidderService.findById(saveOfferRequest.getBidderId());
         var newOffer = Offer.of(saveOfferRequest.getDescription(), bidder, tender);
