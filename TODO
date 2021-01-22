@@ -9,9 +9,10 @@ DONE Model entities (Issuer, Bidder, Tender, Offer)
     DONE Tender
         DONE create tender
         DONE create offer for tender
-    - Bidder
-        - Offers for bidder per tender
-        - All offers for bidder
+        - Offers per tender
+    DONE Bidder
+        DONE Offers for bidder per tender
+        DONE All offers for bidder
     - Issuer
         - All tenders that issuer created
 DONE Add predefined issuers and bidders on app startup
@@ -20,7 +21,9 @@ DONE Add predefined issuers and bidders on app startup
 - Accept offer
     - Model accept offer for a tender (Action entity)
     - Add status for Tender (Created, Finished)
+    - Add status for Offers (Submitted, Accepted, Rejected)
     - Simple async job for processing actions
+- If tender is Finished, no new offers are accepted
 - Add exception handling
 - Add appropriate error responses for exceptions that occured
 - Handle all uncaught exceptions
