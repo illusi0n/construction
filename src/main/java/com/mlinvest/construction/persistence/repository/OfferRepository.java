@@ -13,4 +13,6 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
     List<Offer> findByBidderAndTender(Bidder bidder, Tender tender);
 
     List<Offer> findByBidder(Bidder bidder);
+
+    List<Offer> findByTender(Tender tender);
 }
