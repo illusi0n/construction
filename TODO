@@ -14,7 +14,7 @@ DONE Model entities (Issuer, Bidder, Tender, Offer)
         - All offers for bidder
     - Issuer
         - All tenders that issuer created
-- Add predefined issuers and bidders on app startup
+DONE Add predefined issuers and bidders on app startup
 - Test out endpoints
 - Model tender result
 - Accept offer

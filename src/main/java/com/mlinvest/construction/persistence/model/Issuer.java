@@ -26,8 +26,16 @@ public class Issuer {
     public Issuer() {
     }
 
-    public Issuer(String name) {
+    protected Issuer(String name) {
         this.name = name;
+    }
+
+    protected Issuer(Long issuerId) {
+        this.id = issuerId;
+    }
+
+    public static Issuer of(Long issuerId) {
+        return new Issuer(issuerId);
     }
 
     public static Issuer of(String name) {
