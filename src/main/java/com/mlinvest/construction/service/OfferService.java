@@ -39,4 +39,9 @@ public class OfferService {
         var tender = tenderService.findById(tenderId);
         return offerRepository.findByBidderAndTender(bidder, tender);
     }
+
+    public List<Offer> findAllByTender(Long tenderId) throws TenderNotFoundException {
+        var tender = tenderService.findById(tenderId);
+        return offerRepository.findByTender(tender);
+    }
 }

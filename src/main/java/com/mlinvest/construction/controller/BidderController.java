@@ -20,15 +20,15 @@ public class BidderController {
 
     @GetMapping("{bidderId}/offers")
     public ResponseEntity<?> allSubmittedOffers(@PathVariable Long bidderId) throws BidderNotFoundException {
-        var allOffers = offerService.findAllByBidder(bidderId);
-        return ResponseEntity.ok(OffersDto.of(allOffers));
+        var allOffersByBidder = offerService.findAllByBidder(bidderId);
+        return ResponseEntity.ok(OffersDto.of(allOffersByBidder));
     }
 
     @GetMapping("{bidderId}/tender/{tenderId}/offers")
     public ResponseEntity<?> allSubmittedOffersByTender(@PathVariable Long bidderId, @PathVariable Long tenderId)
             throws BidderNotFoundException, TenderNotFoundException {
-        var allOffers = offerService.findAllByBidderAndTender(bidderId, tenderId);
-        return ResponseEntity.ok(OffersDto.of(allOffers));
+        var allOffersByBidderAndTender = offerService.findAllByBidderAndTender(bidderId, tenderId);
+        return ResponseEntity.ok(OffersDto.of(allOffersByBidderAndTender));
     }
 
 }

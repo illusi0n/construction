@@ -8,6 +8,8 @@ import com.mlinvest.construction.service.exception.TenderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class TenderService {
 
@@ -30,5 +32,10 @@ public class TenderService {
         }
 
         return findResult.get();
+    }
+
+    public List<Tender> findAllByIssuer(Long issuerId) throws IssuerNotFoundException {
+        var issuer = issuerService.findById(issuerId);
+        return tenderRepository.findByIssuer(issuer);
     }
 }
