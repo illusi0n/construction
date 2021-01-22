@@ -21,7 +21,7 @@ public class TenderController {
     private TenderService tenderService;
 
     @PostMapping
-    public ResponseEntity<?> save(@Valid @RequestBody SaveTenderRequestDto saveTenderRequest) throws IssuerNotFoundException {
+    public ResponseEntity<?> saveTender(@Valid @RequestBody SaveTenderRequestDto saveTenderRequest) throws IssuerNotFoundException {
         var savedTender = tenderService.save(saveTenderRequest);
         return ResponseEntity.ok(TenderDto.of(savedTender));
     }
