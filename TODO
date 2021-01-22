@@ -17,7 +17,7 @@ DONE Create endpoints for each entity
         DONE All tenders that issuer created
 DONE Add predefined issuers and bidders on app startup
 DONE Test out endpoints (Tested via Postman)
-- Model tender result
+DONE Model tender result
 - Accept offer
     - Model accept offer for a tender (Action entity)
     - Add status for Tender (Created, Finished)

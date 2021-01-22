@@ -14,11 +14,11 @@ public class TenderResult {
     @Id
     private Long id;
 
-    @OneToOne
+    @OneToOne(optional = false)
     @MapsId
     private Tender tender;
 
-    @OneToOne
+    @OneToOne(optional = false)
     private Offer acceptedOffer;
 
     public TenderResult(Tender tender, Offer acceptedOffer) {
