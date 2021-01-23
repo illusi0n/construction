@@ -1,6 +1,7 @@
 package com.mlinvest.construction.controller;
 
 import com.mlinvest.construction.controller.dto.TendersDto;
+import com.mlinvest.construction.controller.response.RestResponder;
 import com.mlinvest.construction.service.TenderService;
 import com.mlinvest.construction.service.exception.IssuerNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,12 @@ public class IssuerController {
     private TenderService tenderService;
 
     @GetMapping("{issuerId}/tenders")
-    public ResponseEntity<?> allTendersByIssuer(@PathVariable Long issuerId) throws IssuerNotFoundException {
-        var allTendersByIssuer = tenderService.findAllByIssuer(issuerId);
-        return ResponseEntity.ok(TendersDto.of(allTendersByIssuer));
+    public ResponseEntity<?> findAllTendersByIssuer(@PathVariable Long issuerId) {
+        try {
+            var allTendersByIssuer = tenderService.findAllByIssuer(issuerId);
+            return ResponseEntity.ok(TendersDto.of(allTendersByIssuer));
+        } catch (IssuerNotFoundException e) {
+            return RestResponder.createIssuerNotFoundResponse(e.getIssuerId());
+        }
     }
 }

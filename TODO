@@ -24,11 +24,11 @@ DONE Accept offer
     DONE Add status for Tender (Open, Finished)
     DONE Add status for Offers (Submitted, Accepted, Rejected)
     DONE Simple async job for processing actions
-- If tender is Finished, no new offers are accepted
-- Add exception handling
-- Add appropriate error responses for exceptions that occured
-- Handle all uncaught exceptions
-- Remove test controller
+DONE If tender is Finished, no new offers are accepted
+DONE exception handling
+DONE appropriate error responses for exceptions that occured
+DONE Handle all uncaught exceptions
+DONE Remove test controller
 - if time add field name as string generator
 =========================================================
 - Write down integration test
