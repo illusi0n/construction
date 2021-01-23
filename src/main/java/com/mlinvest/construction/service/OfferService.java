@@ -5,6 +5,7 @@ import com.mlinvest.construction.persistence.model.Offer;
 import com.mlinvest.construction.persistence.model.OfferStatus;
 import com.mlinvest.construction.persistence.repository.OfferRepository;
 import com.mlinvest.construction.service.exception.BidderNotFoundException;
+import com.mlinvest.construction.service.exception.NewOffersNotSubmitableException;
 import com.mlinvest.construction.service.exception.OfferNotFoundException;
 import com.mlinvest.construction.service.exception.TenderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,12 @@ public class OfferService {
     @Autowired
     private OfferRepository offerRepository;
 
-    public Offer save(SaveOfferRequestDto saveOfferRequest) throws TenderNotFoundException, BidderNotFoundException {
+    public Offer save(SaveOfferRequestDto saveOfferRequest) throws TenderNotFoundException, BidderNotFoundException, NewOffersNotSubmitableException {
         var tender = tenderService.findById(saveOfferRequest.getTenderId());
+        if (!TenderService.canSubmitOfferToTender(tender)) {
+            throw new NewOffersNotSubmitableException(tender.getId());
+        }
+
         var bidder = bidderService.findById(saveOfferRequest.getBidderId());
         var newOffer = Offer.of(saveOfferRequest.getDescription(), bidder, tender, OfferStatus.SUBMITTED);
         return offerRepository.save(newOffer);

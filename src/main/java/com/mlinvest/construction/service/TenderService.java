@@ -44,4 +44,12 @@ public class TenderService {
         tender.setStatus(TenderStatus.FINISHED);
         return tenderRepository.save(tender);
     }
+
+    public static boolean canSubmitOfferToTender(Tender tender) {
+        return isInStatusToSubmitOffers(tender);
+    }
+
+    private static boolean isInStatusToSubmitOffers(Tender tender) {
+        return List.of(TenderStatus.OPEN).contains(tender.getStatus());
+    }
 }
