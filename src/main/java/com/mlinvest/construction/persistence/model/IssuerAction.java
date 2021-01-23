@@ -1,8 +1,10 @@
 package com.mlinvest.construction.persistence.model;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.Instant;
 
 @Entity
 @Getter
@@ -13,35 +15,42 @@ public class IssuerAction {
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private ActionType actionType;
+    private ActionType type;
 
     @Enumerated(EnumType.STRING)
-    private ActionStatus actionStatus;
+    @Setter
+    private ActionStatus status;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "bidder_id", nullable = false)
     private Tender tender;
 
     // this should be under AcceptOfferIssuerAction
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     private Offer offerToAccept;
+
+    private Instant createdAt;
 
     public IssuerAction() {
     }
 
-    public IssuerAction(ActionType actionType, ActionStatus actionStatus, Tender tender, Offer offerToAccept) {
-        this.actionType = actionType;
-        this.actionStatus = actionStatus;
+    public IssuerAction(ActionType type, ActionStatus status, Tender tender, Offer offerToAccept,
+                        Instant createdAt) {
+        this.type = type;
+        this.status = status;
         this.tender = tender;
         this.offerToAccept = offerToAccept;
+        this.createdAt = createdAt;
     }
 
-    public static IssuerAction of(ActionType actionType, ActionStatus actionStatus, Tender tender, Offer offerToAccept) {
+    public static IssuerAction of(ActionType type, ActionStatus status, Tender tender, Offer offerToAccept,
+                                  Instant createdAt) {
         return new IssuerAction(
-                actionType,
-                actionStatus,
+                type,
+                status,
                 tender,
-                offerToAccept
+                offerToAccept,
+                createdAt
         );
     }
 }

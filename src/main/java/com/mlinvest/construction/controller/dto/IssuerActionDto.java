@@ -24,8 +24,8 @@ public class IssuerActionDto {
     public static IssuerActionDto of(IssuerAction issuerAction) {
         return new IssuerActionDto(
                 issuerAction.getId(),
-                issuerAction.getActionType(),
-                issuerAction.getActionStatus(),
+                issuerAction.getType(),
+                issuerAction.getStatus(),
                 TenderDto.of(issuerAction.getTender()),
                 OfferDto.of(issuerAction.getOfferToAccept())
         );

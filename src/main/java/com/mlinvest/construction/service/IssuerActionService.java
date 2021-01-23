@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
+import java.time.Instant;
+import java.util.Optional;
 
 @Service
 public class IssuerActionService {
@@ -31,8 +33,23 @@ public class IssuerActionService {
                 saveIssuerActionRequest.getActionType(),
                 ActionStatus.PENDING,
                 tender,
-                offerToAccept
+                offerToAccept,
+                Instant.now()
         );
         return issuerActionRepository.save(newIssuerAction);
+    }
+
+    public Optional<IssuerAction> findOldestPendingIssuerAction() {
+        return issuerActionRepository.findFirstByStatusOrderByCreatedAtAsc(ActionStatus.PENDING);
+    }
+
+    public void setIssuerActionToFinished(IssuerAction issuerAction) {
+        issuerAction.setStatus(ActionStatus.FINISHED);
+        issuerActionRepository.save(issuerAction);
+    }
+
+    public void setIssuerActionToFailed(IssuerAction issuerAction) {
+        issuerAction.setStatus(ActionStatus.FAILED);
+        issuerActionRepository.save(issuerAction);
     }
 }

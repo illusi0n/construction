@@ -1,6 +1,7 @@
 package com.mlinvest.construction.persistence.model;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -26,15 +27,19 @@ public class Tender {
     @OneToOne(mappedBy = "tender", fetch = FetchType.LAZY, optional = false)
     private TenderResult result;
 
+    @Setter
+    private TenderStatus status;
+
     public Tender() {
     }
 
-    public Tender(String description, Issuer issuer) {
+    public Tender(String description, Issuer issuer, TenderStatus status) {
         this.description = description;
         this.issuer = issuer;
+        this.status = status;
     }
 
-    public static Tender of(String description, Issuer issuer) {
-        return new Tender(description, issuer);
+    public static Tender of(String description, Issuer issuer, TenderStatus status) {
+        return new Tender(description, issuer, status);
     }
 }
