@@ -4,6 +4,7 @@ import com.mlinvest.construction.controller.dto.OfferDto;
 import com.mlinvest.construction.controller.dto.SaveOfferRequestDto;
 import com.mlinvest.construction.service.OfferService;
 import com.mlinvest.construction.service.exception.BidderNotFoundException;
+import com.mlinvest.construction.service.exception.NewOffersNotAcceptableException;
 import com.mlinvest.construction.service.exception.TenderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,7 @@ public class OfferController {
     private OfferService offerService;
 
     @PostMapping
-    public ResponseEntity<?> saveOffer(@Valid @RequestBody SaveOfferRequestDto saveOfferRequest) throws TenderNotFoundException, BidderNotFoundException {
+    public ResponseEntity<?> saveOffer(@Valid @RequestBody SaveOfferRequestDto saveOfferRequest) throws TenderNotFoundException, BidderNotFoundException, NewOffersNotAcceptableException {
         var savedOffer = offerService.save(saveOfferRequest);
         return ResponseEntity.ok(OfferDto.of(savedOffer));
     }
