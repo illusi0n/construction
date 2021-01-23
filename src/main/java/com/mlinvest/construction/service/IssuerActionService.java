@@ -4,6 +4,7 @@ import com.mlinvest.construction.controller.dto.SaveIssuerActionRequestDto;
 import com.mlinvest.construction.persistence.model.ActionStatus;
 import com.mlinvest.construction.persistence.model.IssuerAction;
 import com.mlinvest.construction.persistence.repository.IssuerActionRepository;
+import com.mlinvest.construction.service.exception.IssuerActionNotFoundException;
 import com.mlinvest.construction.service.exception.OfferNotFoundException;
 import com.mlinvest.construction.service.exception.TenderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,14 @@ public class IssuerActionService {
     public void setIssuerActionToFailed(IssuerAction issuerAction) {
         issuerAction.setStatus(ActionStatus.FAILED);
         issuerActionRepository.save(issuerAction);
+    }
+
+    public IssuerAction findById(Long issuerActionId) throws IssuerActionNotFoundException {
+        var findResult = issuerActionRepository.findById(issuerActionId);
+        if (findResult.isEmpty()) {
+            throw new IssuerActionNotFoundException(issuerActionId);
+        }
+
+        return findResult.get();
     }
 }
