@@ -7,4 +7,5 @@ public class ErrorCodes {
     public static final String ISSUER_ACTION_NOT_FOUND = "ISSUER_ACTION_NOT_FOUND";
     public static final String ISSUER_NOT_FOUND = "ISSUER_NOT_FOUND";
     public static final String TENDER_RESULT_NOT_FOUND = "TENDER_RESULT_NOT_FOUND";
+    public static final String INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR";
 }

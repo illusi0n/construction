@@ -35,4 +35,9 @@ public class RestResponder {
         String message = String.format("%s not found %s=%s", entityName, entityIdName, entityId);
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ApiErrorDto(message, errorCode));
     }
+
+    public static ResponseEntity<ApiErrorDto> createInternalErrorResponse() {
+        String message = "Ooops something went wrong.";
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ApiErrorDto(message, ErrorCodes.INTERNAL_SERVER_ERROR));
+    }
 }
