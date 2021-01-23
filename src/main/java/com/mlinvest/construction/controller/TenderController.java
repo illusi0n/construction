@@ -3,10 +3,13 @@ package com.mlinvest.construction.controller;
 import com.mlinvest.construction.controller.dto.OffersDto;
 import com.mlinvest.construction.controller.dto.SaveTenderRequestDto;
 import com.mlinvest.construction.controller.dto.TenderDto;
+import com.mlinvest.construction.controller.dto.TenderResultDto;
 import com.mlinvest.construction.service.OfferService;
+import com.mlinvest.construction.service.TenderResultService;
 import com.mlinvest.construction.service.TenderService;
 import com.mlinvest.construction.service.exception.IssuerNotFoundException;
 import com.mlinvest.construction.service.exception.TenderNotFoundException;
+import com.mlinvest.construction.service.exception.TenderResultNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +26,9 @@ public class TenderController {
     @Autowired
     private OfferService offerService;
 
+    @Autowired
+    private TenderResultService tenderResultService;
+
     @PostMapping
     public ResponseEntity<?> saveTender(@Valid @RequestBody SaveTenderRequestDto saveTenderRequest) throws IssuerNotFoundException {
         var savedTender = tenderService.save(saveTenderRequest);
@@ -30,8 +36,14 @@ public class TenderController {
     }
 
     @GetMapping("{tenderId}/offers")
-    public ResponseEntity<?> allSubmittedOffersByTender(@PathVariable Long tenderId) throws TenderNotFoundException {
+    public ResponseEntity<?> findSubmittedOffersByTender(@PathVariable Long tenderId) throws TenderNotFoundException {
         var allOffersByTender = offerService.findAllByTender(tenderId);
         return ResponseEntity.ok(OffersDto.of(allOffersByTender));
+    }
+
+    @GetMapping("{tenderId}/result")
+    public ResponseEntity<?> findTenderResult(@PathVariable Long tenderId) throws TenderResultNotFoundException {
+        var tenderResult = tenderResultService.findById(tenderId);
+        return ResponseEntity.ok(TenderResultDto.of(tenderResult));
     }
 }
