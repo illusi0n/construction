@@ -21,6 +21,9 @@ public class TenderResult {
     @OneToOne(optional = false)
     private Offer acceptedOffer;
 
+    public TenderResult() {
+    }
+
     public TenderResult(Tender tender, Offer acceptedOffer) {
         this.tender = tender;
         this.acceptedOffer = acceptedOffer;

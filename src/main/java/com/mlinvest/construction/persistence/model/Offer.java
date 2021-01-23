@@ -1,6 +1,7 @@
 package com.mlinvest.construction.persistence.model;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -24,16 +25,21 @@ public class Offer {
     @JoinColumn(name = "tender_id", nullable = false)
     private Tender tender;
 
+    @Enumerated(EnumType.STRING)
+    @Setter
+    private OfferStatus status;
+
     public Offer() {
     }
 
-    public Offer(String description, Bidder bidder, Tender tender) {
+    public Offer(String description, Bidder bidder, Tender tender, OfferStatus status) {
         this.description = description;
         this.bidder = bidder;
         this.tender = tender;
+        this.status = status;
     }
 
-    public static Offer of(String description, Bidder bidder, Tender tender) {
-        return new Offer(description, bidder, tender);
+    public static Offer of(String description, Bidder bidder, Tender tender, OfferStatus status) {
+        return new Offer(description, bidder, tender, status);
     }
 }

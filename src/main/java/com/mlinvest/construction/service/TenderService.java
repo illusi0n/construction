@@ -2,6 +2,7 @@ package com.mlinvest.construction.service;
 
 import com.mlinvest.construction.controller.dto.SaveTenderRequestDto;
 import com.mlinvest.construction.persistence.model.Tender;
+import com.mlinvest.construction.persistence.model.TenderStatus;
 import com.mlinvest.construction.persistence.repository.TenderRepository;
 import com.mlinvest.construction.service.exception.IssuerNotFoundException;
 import com.mlinvest.construction.service.exception.TenderNotFoundException;
@@ -21,7 +22,7 @@ public class TenderService {
 
     public Tender save(SaveTenderRequestDto saveTenderRequest) throws IssuerNotFoundException {
         var issuer = issuerService.findById(saveTenderRequest.getIssuerId());
-        var newTender = Tender.of(saveTenderRequest.getDescription(), issuer);
+        var newTender = Tender.of(saveTenderRequest.getDescription(), issuer, TenderStatus.OPEN);
         return tenderRepository.save(newTender);
     }
 
@@ -37,5 +38,10 @@ public class TenderService {
     public List<Tender> findAllByIssuer(Long issuerId) throws IssuerNotFoundException {
         var issuer = issuerService.findById(issuerId);
         return tenderRepository.findByIssuer(issuer);
+    }
+
+    public Tender finishTender(Tender tender) {
+        tender.setStatus(TenderStatus.FINISHED);
+        return tenderRepository.save(tender);
     }
 }

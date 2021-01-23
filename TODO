@@ -18,11 +18,12 @@ DONE Create endpoints for each entity
 DONE Add predefined issuers and bidders on app startup
 DONE Test out endpoints (Tested via Postman)
 DONE Model tender result
-- Accept offer
-    - Model accept offer for a tender (Action entity)
-    - Add status for Tender (Created, Finished)
-    - Add status for Offers (Submitted, Accepted, Rejected)
-    - Simple async job for processing actions
+DONE Accept offer
+    DONE Model accept offer for a tender (Action entity)
+    DONE Endpoint for saving actions
+    DONE Add status for Tender (Open, Finished)
+    DONE Add status for Offers (Submitted, Accepted, Rejected)
+    DONE Simple async job for processing actions
 - If tender is Finished, no new offers are accepted
 - Add exception handling
 - Add appropriate error responses for exceptions that occured
