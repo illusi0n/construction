@@ -5,6 +5,7 @@ import com.mlinvest.construction.controller.dto.SaveOfferRequestDto;
 import com.mlinvest.construction.controller.response.RestResponder;
 import com.mlinvest.construction.service.OfferService;
 import com.mlinvest.construction.service.exception.BidderNotFoundException;
+import com.mlinvest.construction.service.exception.NewOffersNotSubmittableException;
 import com.mlinvest.construction.service.exception.TenderNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +32,8 @@ public class OfferController {
             return RestResponder.createTenderNotFoundResponse(e.getTenderId());
         } catch (BidderNotFoundException e) {
             return RestResponder.createBidderNotFoundResponse(e.getBidderId());
+        } catch (NewOffersNotSubmittableException e) {
+            return RestResponder.createOfferNotSubmittableResponse(e);
         }
     }
 }
