@@ -3,10 +3,10 @@ package com.mlinvest.construction.service.exception;
 import lombok.Getter;
 
 @Getter
-public class NewOffersNotAcceptableException extends Exception {
+public class NewOffersNotSubmitableException extends Exception {
     private final Long tenderId;
 
-    public NewOffersNotAcceptableException(Long tenderId) {
+    public NewOffersNotSubmitableException(Long tenderId) {
         this.tenderId = tenderId;
     }
 }

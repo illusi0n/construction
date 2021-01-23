@@ -45,11 +45,11 @@ public class TenderService {
         return tenderRepository.save(tender);
     }
 
-    public static boolean canTenderAcceptOffers(Tender tender) {
-        return isInAcceptableStatus(tender);
+    public static boolean canSubmitOfferToTender(Tender tender) {
+        return isInStatusToSubmitOffers(tender);
     }
 
-    private static boolean isInAcceptableStatus(Tender tender) {
+    private static boolean isInStatusToSubmitOffers(Tender tender) {
         return List.of(TenderStatus.OPEN).contains(tender.getStatus());
     }
 }
