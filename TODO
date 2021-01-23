@@ -24,7 +24,7 @@ DONE Accept offer
     DONE Add status for Tender (Open, Finished)
     DONE Add status for Offers (Submitted, Accepted, Rejected)
     DONE Simple async job for processing actions
-- If tender is Finished, no new offers are accepted
+DONE If tender is Finished, no new offers are accepted
 - Add exception handling
 - Add appropriate error responses for exceptions that occured
 - Handle all uncaught exceptions

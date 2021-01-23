@@ -2,6 +2,7 @@ package com.mlinvest.construction.controller;
 
 import com.mlinvest.construction.controller.dto.OfferDto;
 import com.mlinvest.construction.controller.dto.SaveOfferRequestDto;
+import com.mlinvest.construction.controller.response.RestResponder;
 import com.mlinvest.construction.service.OfferService;
 import com.mlinvest.construction.service.exception.BidderNotFoundException;
 import com.mlinvest.construction.service.exception.TenderNotFoundException;
@@ -22,8 +23,14 @@ public class OfferController {
     private OfferService offerService;
 
     @PostMapping
-    public ResponseEntity<?> saveOffer(@Valid @RequestBody SaveOfferRequestDto saveOfferRequest) throws TenderNotFoundException, BidderNotFoundException {
-        var savedOffer = offerService.save(saveOfferRequest);
-        return ResponseEntity.ok(OfferDto.of(savedOffer));
+    public ResponseEntity<?> saveOffer(@Valid @RequestBody SaveOfferRequestDto saveOfferRequest) {
+        try {
+            var savedOffer = offerService.save(saveOfferRequest);
+            return ResponseEntity.ok(OfferDto.of(savedOffer));
+        } catch (TenderNotFoundException e) {
+            return RestResponder.createTenderNotFoundResponse(e.getTenderId());
+        } catch (BidderNotFoundException e) {
+            return RestResponder.createBidderNotFoundResponse(e.getBidderId());
+        }
     }
 }
