@@ -1,5 +1,8 @@
 package com.mlinvest.construction;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mlinvest.construction.controller.dto.SaveTenderRequestDto;
 import com.mlinvest.construction.persistence.model.*;
 import org.springframework.test.web.servlet.ResultActions;
 
@@ -37,5 +40,10 @@ public class TestUtil {
         return resultActions
                 .andExpect(jsonPath(prefix + ".id", is(tenderResult.getId().intValue())));
 
+    }
+
+    public static String serializeAsJson(Object object) throws JsonProcessingException {
+        var objectMapper = new ObjectMapper();
+        return objectMapper.writeValueAsString(object);
     }
 }

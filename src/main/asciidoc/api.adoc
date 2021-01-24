@@ -77,3 +77,15 @@ include::{snippets}/bidders-find-offers-for-tender-ok/http-request.adoc[]
 === Response
 
 include::{snippets}/bidders-find-offers-for-tender-ok/http-response.adoc[]
+
+# Offer API
+
+== Save offer
+
+=== Request
+
+include::{snippets}/offers-save-ok/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/offers-save-ok/http-response.adoc[]

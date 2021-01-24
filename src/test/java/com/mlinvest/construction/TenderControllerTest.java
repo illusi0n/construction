@@ -49,11 +49,6 @@ public class TenderControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private static String serializeAsJson(SaveTenderRequestDto saveTenderRequest) throws JsonProcessingException {
-        var objectMapper = new ObjectMapper();
-        return objectMapper.writeValueAsString(saveTenderRequest);
-    }
-
     @Test
     public void returnExistingTender() throws Exception {
         var dummyExistingTender = 1L;
