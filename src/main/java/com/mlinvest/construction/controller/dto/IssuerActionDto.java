@@ -5,20 +5,25 @@ import com.mlinvest.construction.persistence.model.ActionType;
 import com.mlinvest.construction.persistence.model.IssuerAction;
 import lombok.Getter;
 
+import java.time.Instant;
+
 @Getter
 public class IssuerActionDto {
     private final Long id;
-    private final ActionType actionType;
-    private final ActionStatus actionStatus;
+    private final ActionType type;
+    private final ActionStatus status;
     private final TenderDto tender;
     private final OfferDto offerToAccept;
+    private final Instant createdAt;
 
-    public IssuerActionDto(Long id, ActionType actionType, ActionStatus actionStatus, TenderDto tender, OfferDto offerToAccept) {
+    public IssuerActionDto(Long id, ActionType type, ActionStatus status, TenderDto tender, OfferDto offerToAccept,
+                           Instant createdAt) {
         this.id = id;
-        this.actionType = actionType;
-        this.actionStatus = actionStatus;
+        this.type = type;
+        this.status = status;
         this.tender = tender;
         this.offerToAccept = offerToAccept;
+        this.createdAt = createdAt;
     }
 
     public static IssuerActionDto of(IssuerAction issuerAction) {
@@ -27,7 +32,8 @@ public class IssuerActionDto {
                 issuerAction.getType(),
                 issuerAction.getStatus(),
                 TenderDto.of(issuerAction.getTender()),
-                OfferDto.of(issuerAction.getOfferToAccept())
+                OfferDto.of(issuerAction.getOfferToAccept()),
+                issuerAction.getCreatedAt()
         );
     }
 }

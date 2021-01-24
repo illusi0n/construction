@@ -1,3 +1,4 @@
+:doctype: book
 :sectnums:
 :sectnumlevels: 5
 :toc: left
@@ -58,7 +59,7 @@ include::{snippets}/tenders-result-tender-finished-ok/http-response.adoc[]
 
 = Bidders API
 
-== Get all offers for bidder by id
+== Find all offers for bidder by id
 
 === Request
 
@@ -68,7 +69,7 @@ include::{snippets}/bidders-find-offers-ok/http-request.adoc[]
 
 include::{snippets}/bidders-find-offers-ok/http-response.adoc[]
 
-== Get all offers for bidder in a tender
+== Find all offers for bidder in a tender
 
 === Request
 
@@ -78,7 +79,7 @@ include::{snippets}/bidders-find-offers-for-tender-ok/http-request.adoc[]
 
 include::{snippets}/bidders-find-offers-for-tender-ok/http-response.adoc[]
 
-# Offer API
+= Offer API
 
 == Save offer
 
@@ -89,3 +90,37 @@ include::{snippets}/offers-save-ok/http-request.adoc[]
 === Response
 
 include::{snippets}/offers-save-ok/http-response.adoc[]
+
+= Issuer API
+
+== Find all tenders by issuer
+
+=== Request
+
+include::{snippets}/issuers-find-tenders-ok/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/issuers-find-tenders-ok/http-response.adoc[]
+
+= Actions API
+
+== Save issuer action
+
+=== Request
+
+include::{snippets}/actions-save-ok/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/actions-save-ok/http-response.adoc[]
+
+== Find issuer action by id
+
+=== Request
+
+include::{snippets}/actions-get-one-ok/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/actions-get-one-ok/http-response.adoc[]

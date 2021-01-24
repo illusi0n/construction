@@ -2,12 +2,13 @@ package com.mlinvest.construction;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mlinvest.construction.controller.dto.SaveTenderRequestDto;
 import com.mlinvest.construction.persistence.model.*;
 import org.springframework.test.web.servlet.ResultActions;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.StatusResultMatchersExtensionsKt.isEqualTo;
 
 public class TestUtil {
 
@@ -22,6 +23,14 @@ public class TestUtil {
                 .andExpect(jsonPath(prefix + ".id", is(offer.getId().intValue())))
                 .andExpect(jsonPath( prefix + ".description", is(offer.getDescription())))
                 .andExpect(jsonPath(prefix + ".status", is(offer.getStatus().toString())));
+    }
+
+    public static ResultActions matchAction(String prefix, IssuerAction issuerAction, ResultActions resultActions) throws Exception {
+        return resultActions
+                .andExpect(jsonPath(prefix + ".id", is(issuerAction.getId().intValue())))
+                .andExpect(jsonPath( prefix + ".type", is(issuerAction.getType().toString())))
+                .andExpect(jsonPath(prefix + ".status", is(issuerAction.getStatus().toString())))
+                .andExpect(jsonPath(prefix + ".createdAt", is(issuerAction.getCreatedAt().toString())));
     }
 
     public static ResultActions matchTender(String prefix, Tender tender, ResultActions resultActions) throws Exception {

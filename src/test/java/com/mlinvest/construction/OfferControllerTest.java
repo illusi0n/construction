@@ -41,13 +41,13 @@ public class OfferControllerTest {
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
         var dummyBidder = DummyBidder.of("Milos", 1L);
         var dummyOffer = DummyOffer.of("Dummy offer", dummyBidder, dummyTender, OfferStatus.SUBMITTED, 1L);
-        var saveÔfferRequest = SaveOfferRequestDto.of("Test offer desc", dummyBidder.getId(), dummyTender.getId());
+        var saveOfferRequest = SaveOfferRequestDto.of("Test offer desc", dummyBidder.getId(), dummyTender.getId());
 
         when(offerService.save(any())).thenReturn(dummyOffer);
 
         var resultActions = this.mockMvc.perform(post("/offers/")
                 .contentType(APPLICATION_JSON)
-                .content(serializeAsJson(saveÔfferRequest)))
+                .content(serializeAsJson(saveOfferRequest)))
                 .andDo(print()).andExpect(status().isOk())
                 .andDo(document("offers-save-ok"));
         matchOffer("$", dummyOffer, resultActions);

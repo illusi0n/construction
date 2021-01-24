@@ -1,7 +1,5 @@
 package com.mlinvest.construction;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mlinvest.construction.controller.TenderController;
 import com.mlinvest.construction.controller.dto.SaveTenderRequestDto;
 import com.mlinvest.construction.controller.response.ErrorCodes;
@@ -51,12 +49,12 @@ public class TenderControllerTest {
 
     @Test
     public void returnExistingTender() throws Exception {
-        var dummyExistingTender = 1L;
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
-        var dummyTender = DummyTender.of(dummyExistingTender, "Test desc", dummyIssuer, TenderStatus.OPEN);
+        var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
 
-        when(tenderService.findById(dummyExistingTender)).thenReturn(dummyTender);
-        var resultActions = this.mockMvc.perform(get("/tenders/" + dummyExistingTender).contentType(APPLICATION_JSON))
+        when(tenderService.findById(dummyTender.getId())).thenReturn(dummyTender);
+
+        var resultActions = this.mockMvc.perform(get("/tenders/" + dummyTender.getId()).contentType(APPLICATION_JSON))
                 .andDo(print()).andExpect(status().isOk())
                 .andDo(document("tenders-get-one-ok"));
         matchTender("$", dummyTender, resultActions);
