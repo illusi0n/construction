@@ -36,7 +36,7 @@ public class IssuerActionProcessor {
     public void processAcceptOfferAction(IssuerAction issuerAction) {
         try {
             var allOffersForTender = offerService.findAllByTender(issuerAction.getTender().getId());
-            rejectOffers(getOffersToReject(allOffersForTender, issuerAction.getId()));
+            rejectOffers(getOffersToReject(allOffersForTender, issuerAction.getOfferToAccept().getId()));
             var acceptedOffer = acceptOffer(issuerAction.getOfferToAccept());
             var finishedTender = finishTender(issuerAction.getTender());
             saveTenderResult(finishedTender, acceptedOffer);

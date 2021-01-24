@@ -21,7 +21,7 @@ include::{snippets}/tenders-get-one-ok/curl-request.adoc[]
 
 include::{snippets}/tenders-get-one-ok/http-response.adoc[]
 
-== Get tender by non existing id
+== Find tender by non existing id
 
 === Request
 
