@@ -55,3 +55,25 @@ include::{snippets}/tenders-result-tender-finished-ok/http-request.adoc[]
 === Response
 
 include::{snippets}/tenders-result-tender-finished-ok/http-response.adoc[]
+
+= Bidders API
+
+== Get all offers for bidder by id
+
+=== Request
+
+include::{snippets}/bidders-find-offers-ok/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/bidders-find-offers-ok/http-response.adoc[]
+
+== Get all offers for bidder in a tender
+
+=== Request
+
+include::{snippets}/bidders-find-offers-for-tender-ok/http-request.adoc[]
+
+=== Response
+
+include::{snippets}/bidders-find-offers-for-tender-ok/http-response.adoc[]

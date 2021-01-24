@@ -29,7 +29,7 @@ public class BidderController {
         }
     }
 
-    @GetMapping("{bidderId}/tender/{tenderId}/offers")
+    @GetMapping("{bidderId}/tenders/{tenderId}/offers")
     public ResponseEntity<?> allSubmittedOffersByTender(@PathVariable Long bidderId, @PathVariable Long tenderId) {
         try {
             var allOffersByBidderAndTender = offerService.findAllByBidderAndTender(bidderId, tenderId);
