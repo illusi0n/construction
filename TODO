@@ -31,9 +31,8 @@ DONE Handle all uncaught exceptions
 DONE Remove test controller
 - if time add field name as string generator
 =========================================================
-- Write down integration test
-- Add spring rest docs with the integration tests
-- Write down unit test for core logic
+DONE Write down integration test
+DONE Add spring rest docs with the controller unit tests
 ===========================================================
 Readme
 - write down technology stack
