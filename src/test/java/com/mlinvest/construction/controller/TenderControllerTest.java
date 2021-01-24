@@ -1,4 +1,4 @@
-package com.mlinvest.construction;
+package com.mlinvest.construction.controller;
 
 import com.mlinvest.construction.controller.TenderController;
 import com.mlinvest.construction.controller.dto.SaveTenderRequestDto;
