@@ -7,11 +7,15 @@
 
 = Tenders API
 
-== Get tender by id
+== Find tender by id
 
 === Request
 
 include::{snippets}/tenders-get-one-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/tenders-get-one-ok/curl-request.adoc[]
 
 === Response
 
@@ -23,6 +27,10 @@ include::{snippets}/tenders-get-one-ok/http-response.adoc[]
 
 include::{snippets}/tenders-get-one-notfound/http-request.adoc[]
 
+curl request
+
+include::{snippets}/tenders-get-one-notfound/curl-request.adoc[]
+
 === Response
 
 include::{snippets}/tenders-get-one-notfound/http-response.adoc[]
@@ -32,6 +40,10 @@ include::{snippets}/tenders-get-one-notfound/http-response.adoc[]
 === Request
 
 include::{snippets}/tenders-save-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/tenders-save-ok/curl-request.adoc[]
 
 === Response
 
@@ -43,6 +55,10 @@ include::{snippets}/tenders-save-ok/http-response.adoc[]
 
 include::{snippets}/tenders-find-offers-ok/http-request.adoc[]
 
+curl request
+
+include::{snippets}/tenders-find-offers-ok/curl-request.adoc[]
+
 === Response
 
 include::{snippets}/tenders-find-offers-ok/http-response.adoc[]
@@ -52,6 +68,10 @@ include::{snippets}/tenders-find-offers-ok/http-response.adoc[]
 === Request
 
 include::{snippets}/tenders-result-tender-finished-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/tenders-result-tender-finished-ok/curl-request.adoc[]
 
 === Response
 
@@ -65,6 +85,10 @@ include::{snippets}/tenders-result-tender-finished-ok/http-response.adoc[]
 
 include::{snippets}/bidders-find-offers-ok/http-request.adoc[]
 
+curl request
+
+include::{snippets}/bidders-find-offers-ok/curl-request.adoc[]
+
 === Response
 
 include::{snippets}/bidders-find-offers-ok/http-response.adoc[]
@@ -74,6 +98,10 @@ include::{snippets}/bidders-find-offers-ok/http-response.adoc[]
 === Request
 
 include::{snippets}/bidders-find-offers-for-tender-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/bidders-find-offers-for-tender-ok/curl-request.adoc[]
 
 === Response
 
@@ -87,6 +115,10 @@ include::{snippets}/bidders-find-offers-for-tender-ok/http-response.adoc[]
 
 include::{snippets}/offers-save-ok/http-request.adoc[]
 
+curl request
+
+include::{snippets}/offers-save-ok/curl-request.adoc[]
+
 === Response
 
 include::{snippets}/offers-save-ok/http-response.adoc[]
@@ -98,6 +130,10 @@ include::{snippets}/offers-save-ok/http-response.adoc[]
 === Request
 
 include::{snippets}/issuers-find-tenders-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/issuers-find-tenders-ok/curl-request.adoc[]
 
 === Response
 
@@ -111,6 +147,10 @@ include::{snippets}/issuers-find-tenders-ok/http-response.adoc[]
 
 include::{snippets}/actions-save-ok/http-request.adoc[]
 
+curl request
+
+include::{snippets}/actions-save-ok/curl-request.adoc[]
+
 === Response
 
 include::{snippets}/actions-save-ok/http-response.adoc[]
@@ -120,6 +160,10 @@ include::{snippets}/actions-save-ok/http-response.adoc[]
 === Request
 
 include::{snippets}/actions-get-one-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/actions-get-one-ok/curl-request.adoc[]
 
 === Response
 
