@@ -4,7 +4,6 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-
 import java.util.List;
 
 import static com.mlinvest.construction.persistence.model.EntityConstants.Bidder.MAX_NAME_LENGTH;
@@ -15,7 +14,7 @@ import static com.mlinvest.construction.persistence.model.EntityConstants.Bidder
 public class Bidder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
     @Size(min = MIN_NAME_LENGTH, max = MAX_NAME_LENGTH)
     private String name;

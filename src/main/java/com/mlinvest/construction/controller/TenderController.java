@@ -5,9 +5,6 @@ import com.mlinvest.construction.controller.dto.SaveTenderRequestDto;
 import com.mlinvest.construction.controller.dto.TenderDto;
 import com.mlinvest.construction.controller.dto.TenderResultDto;
 import com.mlinvest.construction.controller.response.RestResponder;
-import com.mlinvest.construction.persistence.model.Offer;
-import com.mlinvest.construction.persistence.model.Tender;
-import com.mlinvest.construction.persistence.model.TenderResult;
 import com.mlinvest.construction.service.OfferService;
 import com.mlinvest.construction.service.TenderResultService;
 import com.mlinvest.construction.service.TenderService;
@@ -19,7 +16,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("tenders")
@@ -41,6 +37,16 @@ public class TenderController {
             return ResponseEntity.ok(TenderDto.of(savedTender));
         } catch (IssuerNotFoundException e) {
             return RestResponder.createIssuerNotFoundResponse(e.getIssuerId());
+        }
+    }
+
+    @GetMapping("{tenderId}")
+    public ResponseEntity<?> findTender(@PathVariable Long tenderId) {
+        try {
+            var tender = tenderService.findById(tenderId);
+            return ResponseEntity.ok(TenderDto.of(tender));
+        } catch (TenderNotFoundException e) {
+            return RestResponder.createTenderNotFoundResponse(e.getTenderId());
         }
     }
 

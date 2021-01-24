@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 public class TenderResult {
 
     @Id
-    private Long id;
+    protected Long id;
 
     @OneToOne(optional = false)
     @MapsId
