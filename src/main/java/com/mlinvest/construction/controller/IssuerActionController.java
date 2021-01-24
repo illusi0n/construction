@@ -3,7 +3,6 @@ package com.mlinvest.construction.controller;
 import com.mlinvest.construction.controller.dto.IssuerActionDto;
 import com.mlinvest.construction.controller.dto.SaveIssuerActionRequestDto;
 import com.mlinvest.construction.controller.response.RestResponder;
-import com.mlinvest.construction.persistence.model.IssuerAction;
 import com.mlinvest.construction.service.IssuerActionService;
 import com.mlinvest.construction.service.exception.IssuerActionNotFoundException;
 import com.mlinvest.construction.service.exception.OfferNotFoundException;
@@ -22,7 +21,7 @@ public class IssuerActionController {
     private IssuerActionService issuerActionService;
 
     @PostMapping
-    public ResponseEntity<?> saveIssuerAction(@Valid @RequestBody SaveIssuerActionRequestDto saveIssuerActionRequest) {
+    public ResponseEntity<?> save(@Valid @RequestBody SaveIssuerActionRequestDto saveIssuerActionRequest) {
         try {
             var savedIssuerAction = issuerActionService.save(saveIssuerActionRequest);
             return ResponseEntity.ok(IssuerActionDto.of(savedIssuerAction));
@@ -34,7 +33,7 @@ public class IssuerActionController {
     }
 
     @GetMapping("{issuerActionId}")
-    public ResponseEntity<?> findIssuerAction(@PathVariable Long issuerActionId) {
+    public ResponseEntity<?> findById(@PathVariable Long issuerActionId) {
         try {
             var issuerAction = issuerActionService.findById(issuerActionId);
             return ResponseEntity.ok(IssuerActionDto.of(issuerAction));

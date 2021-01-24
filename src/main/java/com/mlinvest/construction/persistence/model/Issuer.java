@@ -15,7 +15,7 @@ public class Issuer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
     @Size(min = MIN_NAME_LENGTH, max = MAX_NAME_LENGTH)
     private String name;

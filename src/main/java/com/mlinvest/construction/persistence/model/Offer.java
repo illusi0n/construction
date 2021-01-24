@@ -12,7 +12,7 @@ public class Offer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
     @Size(min = EntityConstants.Offer.MIN_NAME_LENGTH, max = EntityConstants.Offer.MAX_NAME_LENGTH)
     private String description;

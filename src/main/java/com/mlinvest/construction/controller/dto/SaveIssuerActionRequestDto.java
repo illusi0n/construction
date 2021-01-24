@@ -15,4 +15,21 @@ public class SaveIssuerActionRequestDto {
 
     @NotNull
     private Long offerToAcceptId;
+
+    public SaveIssuerActionRequestDto(ActionType actionType, Long tenderId, Long offerToAcceptId) {
+        this.actionType = actionType;
+        this.tenderId = tenderId;
+        this.offerToAcceptId = offerToAcceptId;
+    }
+
+    public SaveIssuerActionRequestDto() {
+    }
+
+    public static SaveIssuerActionRequestDto of(ActionType actionType, Long tenderId, Long offerToAcceptId) {
+        return new SaveIssuerActionRequestDto(
+                actionType,
+                tenderId,
+                offerToAcceptId
+        );
+    }
 }

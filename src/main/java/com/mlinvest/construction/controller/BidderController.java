@@ -20,7 +20,7 @@ public class BidderController {
     private OfferService offerService;
 
     @GetMapping("{bidderId}/offers")
-    public ResponseEntity<?> allSubmittedOffers(@PathVariable Long bidderId) {
+    public ResponseEntity<?> findAllSubmittedOffers(@PathVariable Long bidderId) {
         try {
             var allOffersByBidder = offerService.findAllByBidder(bidderId);
             return ResponseEntity.ok(OffersDto.of(allOffersByBidder));
@@ -29,8 +29,8 @@ public class BidderController {
         }
     }
 
-    @GetMapping("{bidderId}/tender/{tenderId}/offers")
-    public ResponseEntity<?> allSubmittedOffersByTender(@PathVariable Long bidderId, @PathVariable Long tenderId) {
+    @GetMapping("{bidderId}/tenders/{tenderId}/offers")
+    public ResponseEntity<?> findAllSubmittedOffersByTender(@PathVariable Long bidderId, @PathVariable Long tenderId) {
         try {
             var allOffersByBidderAndTender = offerService.findAllByBidderAndTender(bidderId, tenderId);
             return ResponseEntity.ok(OffersDto.of(allOffersByBidderAndTender));

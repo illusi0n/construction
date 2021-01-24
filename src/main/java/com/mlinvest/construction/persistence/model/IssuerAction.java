@@ -12,7 +12,7 @@ public class IssuerAction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    protected Long id;
 
     @Enumerated(EnumType.STRING)
     private ActionType type;

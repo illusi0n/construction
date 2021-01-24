@@ -1,0 +1,170 @@
+:doctype: book
+:sectnums:
+:sectnumlevels: 5
+:toc: left
+:toclevels: 3
+:page-layout: docs
+
+= Tenders API
+
+== Find tender by id
+
+=== Request
+
+include::{snippets}/tenders-get-one-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/tenders-get-one-ok/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/tenders-get-one-ok/http-response.adoc[]
+
+== Get tender by non existing id
+
+=== Request
+
+include::{snippets}/tenders-get-one-notfound/http-request.adoc[]
+
+curl request
+
+include::{snippets}/tenders-get-one-notfound/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/tenders-get-one-notfound/http-response.adoc[]
+
+== Save tender
+
+=== Request
+
+include::{snippets}/tenders-save-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/tenders-save-ok/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/tenders-save-ok/http-response.adoc[]
+
+== Find offers by tender
+
+=== Request
+
+include::{snippets}/tenders-find-offers-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/tenders-find-offers-ok/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/tenders-find-offers-ok/http-response.adoc[]
+
+== Find tender result for finished tender
+
+=== Request
+
+include::{snippets}/tenders-result-tender-finished-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/tenders-result-tender-finished-ok/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/tenders-result-tender-finished-ok/http-response.adoc[]
+
+= Bidders API
+
+== Find all offers for bidder by id
+
+=== Request
+
+include::{snippets}/bidders-find-offers-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/bidders-find-offers-ok/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/bidders-find-offers-ok/http-response.adoc[]
+
+== Find all offers for bidder in a tender
+
+=== Request
+
+include::{snippets}/bidders-find-offers-for-tender-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/bidders-find-offers-for-tender-ok/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/bidders-find-offers-for-tender-ok/http-response.adoc[]
+
+= Offer API
+
+== Save offer
+
+=== Request
+
+include::{snippets}/offers-save-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/offers-save-ok/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/offers-save-ok/http-response.adoc[]
+
+= Issuer API
+
+== Find all tenders by issuer
+
+=== Request
+
+include::{snippets}/issuers-find-tenders-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/issuers-find-tenders-ok/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/issuers-find-tenders-ok/http-response.adoc[]
+
+= Actions API
+
+== Save issuer action
+
+=== Request
+
+include::{snippets}/actions-save-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/actions-save-ok/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/actions-save-ok/http-response.adoc[]
+
+== Find issuer action by id
+
+=== Request
+
+include::{snippets}/actions-get-one-ok/http-request.adoc[]
+
+curl request
+
+include::{snippets}/actions-get-one-ok/curl-request.adoc[]
+
+=== Response
+
+include::{snippets}/actions-get-one-ok/http-response.adoc[]

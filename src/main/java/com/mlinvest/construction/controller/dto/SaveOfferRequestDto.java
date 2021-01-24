@@ -14,4 +14,21 @@ public class SaveOfferRequestDto {
     private Long bidderId;
 
     private Long tenderId;
+
+    public SaveOfferRequestDto(String description, Long bidderId, Long tenderId) {
+        this.description = description;
+        this.bidderId = bidderId;
+        this.tenderId = tenderId;
+    }
+
+    public SaveOfferRequestDto() {
+    }
+
+    public static SaveOfferRequestDto of(String description, Long bidderId, Long tenderId) {
+        return new SaveOfferRequestDto(
+                description,
+                bidderId,
+                tenderId
+        );
+    }
 }
