@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(IssuerActionController.class)
 @AutoConfigureRestDocs(outputDir = "target/snippets")
-public class IssuerActionControllerTest {
+class IssuerActionControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -38,7 +38,7 @@ public class IssuerActionControllerTest {
     private IssuerActionService issuerActionService;
 
     @Test
-    public void saveIssuerActionValidDataSuccess() throws Exception {
+    void saveIssuerActionValidDataSuccess() throws Exception {
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
         var dummyBidder = DummyBidder.of("Milos", 1L);
@@ -60,7 +60,7 @@ public class IssuerActionControllerTest {
     }
 
     @Test
-    public void returnExistingTender() throws Exception {
+    void returnExistingTender() throws Exception {
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
         var dummyBidder = DummyBidder.of("Milos", 1L);

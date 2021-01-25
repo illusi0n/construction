@@ -1,6 +1,5 @@
 package com.mlinvest.construction.controller;
 
-import com.mlinvest.construction.controller.OfferController;
 import com.mlinvest.construction.controller.dto.SaveOfferRequestDto;
 import com.mlinvest.construction.dto.DummyBidder;
 import com.mlinvest.construction.dto.DummyIssuer;
@@ -27,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(OfferController.class)
 @AutoConfigureRestDocs(outputDir = "target/snippets")
-public class OfferControllerTest {
+class OfferControllerTest {
 
     @MockBean
     private OfferService offerService;
@@ -36,7 +35,7 @@ public class OfferControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void saveOfferValidDataSuccess() throws Exception {
+    void saveOfferValidDataSuccess() throws Exception {
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
         var dummyBidder = DummyBidder.of("Milos", 1L);

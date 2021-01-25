@@ -1,6 +1,5 @@
 package com.mlinvest.construction.controller;
 
-import com.mlinvest.construction.controller.TenderController;
 import com.mlinvest.construction.controller.dto.SaveTenderRequestDto;
 import com.mlinvest.construction.controller.response.ErrorCodes;
 import com.mlinvest.construction.dto.*;
@@ -33,7 +32,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(TenderController.class)
 @AutoConfigureRestDocs(outputDir = "target/snippets")
-public class TenderControllerTest {
+class TenderControllerTest {
 
     @MockBean
     private TenderService tenderService;
@@ -48,7 +47,7 @@ public class TenderControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void returnExistingTender() throws Exception {
+    void returnExistingTender() throws Exception {
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
 
@@ -62,7 +61,7 @@ public class TenderControllerTest {
     }
 
     @Test
-    public void nonExistingTenderReturnNotFound() throws Exception {
+    void nonExistingTenderReturnNotFound() throws Exception {
 
         when(tenderService.findById(1L)).thenThrow(new TenderNotFoundException(1L));
 
@@ -72,7 +71,7 @@ public class TenderControllerTest {
     }
 
     @Test
-    public void saveTenderValidDataSuccess() throws Exception {
+    void saveTenderValidDataSuccess() throws Exception {
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
         var saveRequest = SaveTenderRequestDto.of(1L, "Test desc");
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
@@ -89,7 +88,7 @@ public class TenderControllerTest {
     }
 
     @Test
-    public void findAllOffersForExistingTenderAndSubmittedOffers() throws Exception {
+    void findAllOffersForExistingTenderAndSubmittedOffers() throws Exception {
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
         var dummyBidder = DummyBidder.of("Milos", 1L);
@@ -110,7 +109,7 @@ public class TenderControllerTest {
     }
 
     @Test
-    public void findTenderResultForFinishedTender() throws Exception {
+    void findTenderResultForFinishedTender() throws Exception {
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
         var dummyBidder = DummyBidder.of("Milos", 1L);

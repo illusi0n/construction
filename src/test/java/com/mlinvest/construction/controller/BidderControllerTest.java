@@ -1,6 +1,5 @@
 package com.mlinvest.construction.controller;
 
-import com.mlinvest.construction.controller.BidderController;
 import com.mlinvest.construction.dto.DummyBidder;
 import com.mlinvest.construction.dto.DummyIssuer;
 import com.mlinvest.construction.dto.DummyOffer;
@@ -27,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(BidderController.class)
 @AutoConfigureRestDocs(outputDir = "target/snippets")
-public class BidderControllerTest {
+class BidderControllerTest {
 
     @MockBean
     private OfferService offerService;
@@ -36,7 +35,7 @@ public class BidderControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void findAllSubmittedOffersForExistingBidder() throws Exception {
+    void findAllSubmittedOffersForExistingBidder() throws Exception {
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
         var dummyBidder = DummyBidder.of("Milos", 1L);
@@ -61,7 +60,7 @@ public class BidderControllerTest {
     }
 
     @Test
-    public void findAllSubmittedOffersForExistingBidderAndTender() throws Exception {
+    void findAllSubmittedOffersForExistingBidderAndTender() throws Exception {
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
         var dummyBidder = DummyBidder.of("Milos", 1L);

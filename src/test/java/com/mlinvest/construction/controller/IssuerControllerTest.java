@@ -26,7 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(IssuerController.class)
 @AutoConfigureRestDocs(outputDir = "target/snippets")
-public class IssuerControllerTest {
+class IssuerControllerTest {
 
     @MockBean
     private TenderService tenderService;
@@ -35,7 +35,7 @@ public class IssuerControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    public void getExistingTendersForExistingIssuer() throws Exception {
+    void getExistingTendersForExistingIssuer() throws Exception {
         var dummyIssuer = DummyIssuer.of("Milos", 1L);
         var dummyTender = DummyTender.of(1L, "Test desc", dummyIssuer, TenderStatus.OPEN);
 

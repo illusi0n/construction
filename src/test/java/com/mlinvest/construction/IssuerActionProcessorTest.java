@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @DataJpaTest
 @ExtendWith(SpringExtension.class)
 @Import(TestConfig.class)
-public class IssuerActionProcessorTest {
+class IssuerActionProcessorTest {
 
     @Autowired
     private TenderRepository tenderRepository;
@@ -69,7 +69,7 @@ public class IssuerActionProcessorTest {
     }
 
     @Test
-    public void onNewIssuerActionSuccessfulUpdates() {
+    void onNewIssuerActionSuccessfulUpdates() {
         var savedData = initData();
         issuerActionProcessor.processAcceptOfferAction(savedData.getIssuerAction());
 

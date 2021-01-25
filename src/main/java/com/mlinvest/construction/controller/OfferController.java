@@ -33,7 +33,7 @@ public class OfferController {
         } catch (BidderNotFoundException e) {
             return RestResponder.createBidderNotFoundResponse(e.getBidderId());
         } catch (NewOffersNotSubmittableException e) {
-            return RestResponder.createOfferNotSubmittableResponse(e);
+            return RestResponder.createOfferNotSubmittableResponse();
         }
     }
 }

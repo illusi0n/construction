@@ -1,6 +1,5 @@
 package com.mlinvest.construction.controller.response;
 
-import com.mlinvest.construction.service.exception.NewOffersNotSubmittableException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -42,7 +41,7 @@ public class RestResponder {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new ApiErrorDto(message, ErrorCodes.INTERNAL_SERVER_ERROR));
     }
 
-    public static ResponseEntity<?> createOfferNotSubmittableResponse(NewOffersNotSubmittableException e) {
+    public static ResponseEntity<ApiErrorDto> createOfferNotSubmittableResponse() {
         String message = "Offer not submittable, tender has finished";
         return ResponseEntity.status(HttpStatus.CONFLICT).body(new ApiErrorDto(message, ErrorCodes.OFFER_NOT_SUBMITTABLE));
     }
