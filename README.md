@@ -37,6 +37,19 @@ API docs are in `target\generated-sources\documentation\api.html`.
 Some api docs are missing in cases where non existing ids are passed. The request/response looks the same as in "2. Find
 tender by non existing id" from the docs.
 
+# db auto generated data
+
+- 2 issuers with ids 1 and 2
+- 3 bidders with ids 1, 2 and 3
+
+# app flow
+
+- issuer creates a tender
+- bidders create offers
+- issuer accepts one offer
+- tender gets closed, oen offer is accepted, rest of the offers are rejected
+- tender has tender results with accepted offer
+
 # general approach
 
 - understand domain problem
